@@ -42,8 +42,7 @@ HOW-TO: Git commands
 How to make a good pull request?
 --------------------------------
 
-1. Check that your git settings for authorship are correct:
-     $ git config -l | grep ^user\.
+1. Check that your git settings for authorship are correct: `$ git config -l | grep ^user\.`
 2. All the commits in the pull request must be on the same topic. If you propose fixes on different topics, use separate branches in your repo and make a pull request for each.
 3. Good commit messages:
      - First line must be 72 chars max and is a summary of the commit.
@@ -52,13 +51,13 @@ How to make a good pull request?
 4. Use a descriptive title for your pull request.
 5. Put details, web links, in the pull request body. Use Markdown to format the content (see Github help on formatting).
 
-How my patch will be applied?
+How will my patch be applied?
 -----------------------------
 
 Before being applied, your pull request will be reviewed by the maintainers and other users. You can help the project by reviewing other pull requests as well.
 
 If your patch is accepted, it will be applied either by:
-- Merging your branch
+- Merging your branch.
 - Cherry-picking your commit on top of the `develop` branch. This makes the history linear, and easier to track.
 
 In any case, your authorship will be preserved in the commit.
