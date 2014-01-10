@@ -77,4 +77,7 @@ SaasStarter::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  
+  # Custom configurations (Devise)
+  config.action_mailer.default_url_options = { host: ENV["HOST_URL"] }
 end
