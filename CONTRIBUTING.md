@@ -13,8 +13,10 @@ If you wrote your patch on the wrong branch, the maintainers may choose to close
 HOW-TO: Git commands
 --------------------
 
-    $ git clone -b develop -o upstream git://github.com/stuarthannig/saas_starter-rails4.git
+    # Fork the repo, clone it, & switch to the 'develop' branch
+    $ git clone https://github.com/<your github username>/saas_starter-rails4.git
     $ cd saas_starter-rails4
+    $ git checkout develop
 
     # Prepare a fix (include the issues number if applicable)
     $ git checkout -b fix/<my-fix>
@@ -23,21 +25,20 @@ HOW-TO: Git commands
 
     # Hack, commit, hack, commit...
 
-    # Fork the project on Github (if you haven't already)
-
-    # Add the remote target for pushes
-    $ git remote add origin git@github.com:<your github username>/saas_starter-rails4.git
+    # Add the upstream to pull changes
+    $ git remote add upstream https://github.com/stuarthannig/saas_starter-rails4.git
 
     # Check that your local repo is up-to-date
     $ git fetch
     # Rebase your work on the lastest maintained 'develop' brnach
     $ git rebase upstream/develop
+    
+    # Resolve any conflicts
 
     # Push your commits
-    $ git push github fix/<my-fix>
+    $ git push origin fix/<my-fix>
 
-    # Create the pull request on Github. Make sure the 'develop' branch as the starting point for your branch.
-
+    # Create the pull request on Github. Make sure the 'develop' branch is the starting point for your pull request.
 
 How to make a good pull request?
 --------------------------------
