@@ -12,14 +12,15 @@ gem 'turbolinks' # Turbolinks makes following links in your web application fast
 gem 'uglifier', '>= 2.1.1' # Use Uglifier as compressor for JavaScript assets
 
 # Project specific gems
+gem 'thin' # Web server (used for Heroku, also look into Unicorn)
 gem 'bootstrap-sass' # Twitter Bootstrap 3
 gem 'high_voltage', '~> 2.1.0' # Rails eengine for static pages
-gem 'devise'
+gem 'devise' # User authentication
+gem 'figaro' # Environment variables configurer
 
 group :production do
   gem 'pg', '~> 0.17.0' # Database for Heroku
   gem 'rails_12factor', '0.0.2' # Heroku support
-  gem 'thin' # Web server for Heroku, need to look at Unicorn also
 end
 
 group :development, :test do

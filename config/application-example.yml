@@ -1,0 +1,17 @@
+# Add application configuration variables here, as shown below.
+# Set as Heroku environment variables using 'rake figaro:heroku'
+
+SITE_NAME: 'Rails 4 SaaS Starter Kit'
+
+STRIPE_API_KEY: '<stripe api key>'
+STRIPE_PUBLIC_KEY: '<stripe public key>'
+
+production:
+  DB_NAME: '<database name>'
+  DB_USER: '<database user>'
+  DB_PASS: '<database password>'
+  
+  HOST_URL: '<site url>'
+  
+development:
+  HOST_URL: 'localhost:3000'
