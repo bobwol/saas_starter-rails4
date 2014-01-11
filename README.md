@@ -1,6 +1,6 @@
-# Rails 4 Saas Starter Kit
+# Rails 4 SaaS Starter Kit
 
-Bug report or feature requests? [Browse issues](https://github.com/stuarthannig/saas_starter-rails4/issues)
+Bug report or feature request? [Browse issues](https://github.com/stuarthannig/saas_starter-rails4/issues).
 
 ## Requirements
 
