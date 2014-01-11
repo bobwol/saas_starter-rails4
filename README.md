@@ -1,7 +1,6 @@
 # Rails 4 Saas Starter Kit
 
-Bug reports and feature requests:
-https://github.com/stuarthannig/saas_starter-rails4/issues/new
+Bug report or feature requests? [Browse issues](https://github.com/stuarthannig/saas_starter-rails4/issues)
 
 ## Requirements
 
@@ -14,12 +13,13 @@ The requirements for running SaaS Starter are:
 ## Installation
 
  1. Extract, checkout or clone SaaS Starter into a new folder
- 2. Open the new folder `$cd sass_starter-rails4`
+ 2. Open the new folder `$ cd sass_starter-rails4`
  3. Update and install the necessary gems: `$ bundle update` and `$ bundle install`
- 4. Migrate the databases: `$ rake db:migrate`
- 5. Start the server: `$ rails server`
- 6. Point your browser to http://localhost:3000/
- 7. Enjoy!
+ 4. Rename `config/application-example.yml` to `application.yml` and edit configurations
+ 5. Migrate the databases: `$ rake db:migrate`
+ 6. Start the server: `$ rails server`
+ 7. Point your browser to http://localhost:3000/
+ 8. Enjoy!
  
 ## Contributing
 
