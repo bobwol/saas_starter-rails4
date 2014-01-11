@@ -26,8 +26,13 @@ end
 group :development, :test do
   gem 'sqlite3', '1.3.8' # Database for simple local development
   gem 'quiet_assets', '1.0.2' # Turn off assets log
-  gem 'rspec-rails', '2.14.1' # Testing framework for Rails
   gem 'rails_layout' # Front-end framework layout generator
+  gem 'rspec-rails', '2.14.1' # Testing framework for Rails
+end
+
+group :test do
+  gem 'selenium-webdriver', '2.35.1' # Interacts with HTML for testing
+  gem 'capybara', '~> 2.2.1' # DSL for making tests more readable
 end
 
 group :doc do
