@@ -1,19 +1,44 @@
-<div class="authform">
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
-    <h3>Sign up</h3>
-    <%= devise_error_messages! %>
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-    </div>
-     <%= f.submit 'Sign up', :class => 'button right' %>
-  <% end %>
+<%= content_for :title, 'Sign Up' %>
+<%= content_for :body_id, 'signup' %>
+
+    <h4>Set up your new account today.</h4>
+    <p>
+      30-day money-back guarantee that starts after your first payment.
+    </p>
+  </div>
 </div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="wrapper clearfix">
+      <div class="formy">
+        <div class="row">
+          <div class="col-md-12">
+            <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
+              <%= devise_error_messages! %> 
+              <div class="form-group">
+                <%= f.label :email %>
+                <%= f.email_field :email, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= f.label :password %>
+                <%= f.password_field :password, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, class: 'form-control' %>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Yes, I have read and agree to the <%= link_to 'terms of service', page_path('tos') %> agreement</a>.
+                </label>
+              </div>
+              <%= f.submit 'Create my account', class: 'button' %>
+            <% end %>
+          </div>
+        </div>						
+      </div>
+    </div>
+    <div class="already-account">
+      Already have an account?
+      <%= link_to 'Login here', new_user_session_path %>
+    </div>
