@@ -7,9 +7,9 @@ class ApplicationController < ActionController::Base
 
 private
   def layout_by_resource
-    if controller_name == 'pages' && params[:id] == "home"
+    if controller_name == 'pages' && params[:id] == 'home'
       "home"                        # Homepage
-    elsif devise_controller?
+    elsif (controller_name == 'registrations' || controller_name == 'sessions') && action_name == 'new'
       "sign_up"                     # Sign up & sign in
     else
       "application"                 # Everything else
