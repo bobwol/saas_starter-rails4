@@ -1,3 +1,4 @@
+source 'https://code.stripe.com' # Only trust Stripe gem from Stripe
 source 'https://rubygems.org'
 ruby '2.0.0'
 #ruby-gemset=saas_starter
@@ -16,6 +17,7 @@ gem 'thin' # Web server (used for Heroku, also look into Unicorn)
 gem 'high_voltage', '~> 2.1.0' # Rails eengine for static pages
 gem 'devise' # User authentication
 gem 'figaro' # Environment variables configurer
+gem 'stripe' # Stripe payment API
 
 group :production do
   gem 'pg', '~> 0.17.0' # Database for Heroku

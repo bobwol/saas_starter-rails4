@@ -41,5 +41,6 @@ rerun.txt
 pickle-email-*.html
 .project
 
-# Ignore Figaro application configuration
+# Ignore Database & Figaro application configuration
+/config/database.yml
 /config/application.yml
