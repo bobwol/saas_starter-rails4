@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title><%= full_title(yield(:title)) %></title> 
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : ENV["SITE_NAME"] %>">
+    
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  
+  <body id="signup">
+    <div class="container">
+      <header class="row header">
+        <div class="col-md-12">
+          <h3 class="logo">
+            <%= link_to ENV["SITE_NAME"], root_path %>
+          </h3>

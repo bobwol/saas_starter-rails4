@@ -1,5 +1,79 @@
 <%= content_for :title, 'About Us' %>
+<%= content_for :body_id, 'about-us' %>
 
-<h2>About Us</h2>
+<div>
+  <div class="container">
+    <div class="row header">
+      <div class="col-md-12">
+        
+        <h3>About Us</h3>
+        
+        <p>Current status and incident report</p>
+        
+        <p><%= image_tag 'office2.png', alt:'office' %></p>
+        
+        <div id="info">
+          <h4>We care about our work</h4>
+          
+          <div class="row">
+            <div class="col-md-6">
+              <p>
+                Whether you want to fill this paragraph with some text like I'm doing right now, this place is perfect to describe some features or anything you want - Canvas has a complete solution for you. You have complete control over the look & feel of your website, we offer the best quality so you take your site up and running in no time.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <p>
+                Canvas is a simple, developer-friendly way to get your site. Full of features, cool documentation ease of use, lots of pages. We want to help bringing cool stuff to people so they can get their projects faster.
+              </p>
+            </div>
+          </div>
+          
+          <div class="row stats">
+            <div class="col-sm-3">
+              <strong>13</strong>
+              employees
+            </div>
+            <div class="col-sm-3">
+              <strong>10k</strong>
+              customers
+            </div>
+            <div class="col-sm-3">
+              <strong>9</strong>
+              template pages
+            </div>
+            <div class="col-sm-3">
+              <strong>13k</strong>
+              products sold
+            </div>
+          </div>
+          
+          <div class="row team">
+            <div class="col-md-12 team-row">
+              <%= image_tag 'testimonials/testimonial1.jpg', data: {toggle: 'tooltip'}, title: 'Eric Smith - CEO', alt: 'employee' %>
+              <%= image_tag 'testimonials/testimonial2.jpg', data: {toggle: 'tooltip'}, title: 'Rachel Dawes - PM', alt: 'employee' %>
+              <%= image_tag 'testimonials/testimonial3.jpg', data: {toggle: 'tooltip'}, title: 'Henry Hill - Developer', alt: 'employee' %>
+              <%= image_tag 'testimonials/testimonial4.jpg', data: {toggle: 'tooltip'}, title: 'Ana Rich - Designer', alt: 'employee' %>
+              <%= image_tag 'testimonials/testimonial7.jpg', data: {toggle: 'tooltip'}, title: 'Jessica Welch - Designer', alt: 'employee' %>
+              <%= image_tag 'testimonials/testimonial8.jpg', data: {toggle: 'tooltip'}, title: 'Charly - iOS Developer', alt: 'employee' %>
+            </div>
+            <div class="col-md-12 team-row">
+              <%= image_tag 'testimonials/testimonial5.jpg', data: {toggle: 'tooltip'}, title: 'Karen Stewart - PM', alt: 'employee' %>
+              <%= image_tag 'testimonials/testimonial4.jpg', data: {toggle: 'tooltip'}, title: 'Charly - iOS Developer', alt: 'employee' %>
+              <%= image_tag 'testimonials/testimonial7.jpg', data: {toggle: 'tooltip'}, title: 'Jessica Welch - Designer', alt: 'employee' %>
+              <%= image_tag 'testimonials/testimonial8.jpg', data: {toggle: 'tooltip'}, title: 'John Raynolds - UI/UX', alt: 'employee' %>
+              <%= image_tag 'testimonials/testimonial3.jpg', data: {toggle: 'tooltip'}, title: 'Henry Hill - Developer', alt: 'employee' %>
+              <%= image_tag 'testimonials/testimonial2.jpg', data: {toggle: 'tooltip'}, title: 'Rachel Dawes - PM', alt: 'employee' %>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>A blurb about our company and explaining our values.</p>
+<script type="text/javascript">
+  $(function() {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+</script>

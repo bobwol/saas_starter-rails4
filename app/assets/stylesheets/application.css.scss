@@ -1,13 +1,33 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
- */
+/* modules */
+@import "modules/mixins";
+@import "modules/elements";
+
+/* vendor */
+@import "bootstrap/bootstrap.min";
+@import "bootstrap/bootstrap-overrides";
+
+/* config variables */
+@import "partials/config";
+
+/* layout */
+@import "partials/layout";
+
+/* pages */
+@import "partials/pages/index";
+@import "partials/pages/features";
+@import "partials/pages/services";
+@import "partials/pages/signup";
+@import "partials/pages/signup_rotate";
+@import "partials/pages/blog";
+@import "partials/pages/blogpost";
+@import "partials/pages/pricing";
+@import "partials/pages/charts";
+@import "partials/pages/aboutus";
+@import "partials/pages/contactus";
+@import "partials/pages/status";
+@import "partials/pages/gallery";
+@import "partials/pages/portfolio";
+@import "partials/pages/portfolio_item";
+@import "partials/pages/support";
+
+@import "custom";

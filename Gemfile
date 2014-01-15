@@ -13,7 +13,6 @@ gem 'uglifier', '>= 2.1.1' # Use Uglifier as compressor for JavaScript assets
 
 # Project specific gems
 gem 'thin' # Web server (used for Heroku, also look into Unicorn)
-gem 'bootstrap-sass' # Twitter Bootstrap 3
 gem 'high_voltage', '~> 2.1.0' # Rails eengine for static pages
 gem 'devise' # User authentication
 gem 'figaro' # Environment variables configurer
@@ -26,7 +25,6 @@ end
 group :development, :test do
   gem 'sqlite3', '1.3.8' # Database for simple local development
   gem 'quiet_assets', '1.0.2' # Turn off assets log
-  gem 'rails_layout' # Front-end framework layout generator
   gem 'rspec-rails', '2.14.1' # Testing framework for Rails
 end
 
