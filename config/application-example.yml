@@ -3,11 +3,27 @@
 
 SITE_NAME: 'Rails 4 SaaS Starter Kit'
 
+# This will be the initial user for the app, you can manually 
+# add more administrators and users from the Admin Panel after setup
+ADMIN_EMAIL: '<administrator's email>'
+ADMIN_PASSWORD: '<administrator's password>'
+ADMIN_FIRST_NAME: '<administrator's first name>'
+ADMIN_LAST_NAME: '<administrator's last name>'
+
+# Declare your customer plans -- DO NOT CHANGE THE ORDER ONCE SET!
+# if you add more plans later, always append them at the end
+PLANS: basic, advance, deluxe
+
+# Your social media accounts, customers love staying connected!
 TWITTER_URL: 'https://twitter.com/<twiiter handle>'
 FACEBOOK_URL: 'https://www.facebook.com/<facebook handle>'
 GPLUS_URL: 'https://plus.google.com/+<google plus handle>'
 
+
+
+#################################################################
 ########################## -IMPORTANT- ##########################
+#################################################################
 # THE FOLLOWING ARE VARIABLES THAT YOU WILL ALSO SEE BELOW IN THE 
 # PRODUCTION SECTION. PLEASE FILL THE IMMEDIATE VARIABLES WITH 
 # DEVELOPMENT & TEST CONFIGS AND THEN PROCEED TO PRODUCTION
