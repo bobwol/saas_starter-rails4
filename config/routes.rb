@@ -1,8 +1,11 @@
+# The priority is based upon order of creation: first created -> highest priority.
+# See how all your routes lay out with "rake routes".
 SaasStarter::Application.routes.draw do
-  get "users/index"
-  get "users/show"
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  namespace :admin do
+    match '', to: 'dashboard#index', via: 'get', as: '/'
+    resources :plans
+  end
+  
   devise_for :users
   resources :users
   

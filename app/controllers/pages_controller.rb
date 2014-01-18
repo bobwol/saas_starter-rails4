@@ -10,6 +10,7 @@ class PagesController < ApplicationController
       # instead redirect to the user's dashboard
       redirect_to dashboards_path
     else
+      @plans = Plan.all
       # Because of the HighVoltage show action override, we need to
       # repeat the template rendering it did
       render template: current_page

@@ -16,8 +16,10 @@ gem 'uglifier', '>= 2.1.1' # Use Uglifier as compressor for JavaScript assets
 gem 'thin' # Web server (used for Heroku, also look into Unicorn)
 gem 'high_voltage', '~> 2.1.0' # Rails eengine for static pages
 gem 'devise' # User authentication
+gem 'pundit' # User authorization
 gem 'figaro' # Environment variables configurer
 gem 'stripe' # Stripe payment API
+gem 'redcarpet' # Markdown renderer
 
 group :production do
   gem 'pg', '~> 0.17.0' # Database for Heroku
