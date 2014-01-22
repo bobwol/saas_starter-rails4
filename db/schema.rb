@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140116234155) do
+ActiveRecord::Schema.define(version: 20140118053450) do
 
   create_table "plans", force: true do |t|
     t.string   "name"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20140116234155) do
     t.text     "features"
     t.boolean  "is_featured",   default: false
     t.boolean  "has_trial",     default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subscriptions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "plan_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -11,7 +11,7 @@ private
   def layout_by_resource
     if controller_name == 'pages' && params[:id] == 'home'
       "home"                        # Homepage
-    elsif (controller_name == 'registrations' || controller_name == 'sessions') && action_name == 'new'
+    elsif (controller_name == 'registrations' || controller_name == 'sessions') && (action_name == 'new' || action_name == 'create')
       "sign_up"                     # Sign up & sign in
     else
       "application"                 # Everything else

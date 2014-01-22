@@ -12,4 +12,11 @@ module PlansHelper
     
     class_name
   end
+  
+  def price_cta plan
+    price = "(#{number_to_currency plan.price}/#{plan.interval})"
+    price = "<del>#{price}</del> <span class=\"trial\">Free trial - limited time only!</span>" if plan.has_trial?
+    price = "(FREE!)" if plan.price == 0
+    price
+  end
 end

@@ -27,10 +27,14 @@
                 <%= f.label :password_confirmation %>
                 <%= f.password_field :password_confirmation, class: 'form-control' %>
               </div>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"> Yes, I have read and agree to the <%= link_to 'terms of service', page_path('tos') %> agreement</a>.
-                </label>
+              <div class="form-group">
+                <%= f.label :plan, "Choose a plan" %><br>
+                <% @plans.each do |plan| %>
+                <% is_checked = true if plan.id == @selected || (@selected == 0 && plan == @plans.first) %>
+                <%= radio_button :user, "plan_id", plan.id, {checked: is_checked} %>
+                <%= f.label "plan_id_#{plan.id}", "#{plan.name} #{price_cta plan}".html_safe, class: 'label-checkbox' %>
+                <br>
+                <% end %>
               </div>
               <%= f.submit 'Create my account', class: 'button' %>
             <% end %>
