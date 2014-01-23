@@ -1,0 +1,25 @@
+<h1>Listing subscriptions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>plan_id</th>
+      <th>start_date</th>
+      <th>end_date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subscriptions.each do |subscription| %>
+      <tr>
+        <td><%= subscription.plan_id %></td>
+        <td><%= subscription.start_date %></td>
+        <td><%= subscription.end_date %></td>
+     </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Subscription', new_user_subscription_path %>

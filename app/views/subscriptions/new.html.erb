@@ -1,0 +1,14 @@
+<h1>New subscription</h1>
+
+<%= form_tag user_subscriptions_path do %>
+<article>
+  <label class="amount">
+    <span>Amount: $5.00</span>
+  </label>
+</article>
+
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%=  ENV['STRIPE_PUBLIC_KEY'] %>"
+        data-description="A month's subscription"
+        data-amount="500"></script>
+<% end %>
