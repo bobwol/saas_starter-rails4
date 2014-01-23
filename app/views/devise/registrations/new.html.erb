@@ -36,6 +36,10 @@
                 <br>
                 <% end %>
               </div>
+              <div class="checkbox">
+                <%= f.check_box :terms_of_service %>
+                <%= f.label :terms_of_service, "Yes, I have read and accept the #{link_to 'terms of service', page_path('tos'), target: '_blank'} agreement.".html_safe %>
+              </div>
               <%= f.submit 'Create my account', class: 'button' %>
             <% end %>
           </div>
