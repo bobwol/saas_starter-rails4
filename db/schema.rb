@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140118053450) do
+ActiveRecord::Schema.define(version: 20140123040117) do
 
   create_table "plans", force: true do |t|
     t.string   "name"
@@ -30,7 +30,14 @@ ActiveRecord::Schema.define(version: 20140118053450) do
     t.integer  "plan_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "start_date", default: '2014-01-23'
+    t.date     "end_date",   default: '2014-02-23'
   end
+
+  add_index "subscriptions", ["end_date"], name: "index_subscriptions_on_end_date"
+  add_index "subscriptions", ["plan_id"], name: "index_subscriptions_on_plan_id"
+  add_index "subscriptions", ["start_date"], name: "index_subscriptions_on_start_date"
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

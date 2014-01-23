@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :subscriptions
+  has_many :subscriptions, dependent: :destroy
+  has_one :current_subscription, -> { where 'end_date >= ?', Date.today }, class_name: 'Subscription'
   
   #<div class="checkbox">
   #  <%= f.check_box :terms_of_service %>

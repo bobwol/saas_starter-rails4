@@ -14,7 +14,7 @@
               <%= devise_error_messages! %>
               <div class="form-group">
                 <%= f.label :email %>
-                <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
+                <%= f.email_field :email, class: 'form-control', autofocus: true %>
               </div>
               <div class="form-group">
                 <%= f.label :password %>
@@ -23,10 +23,10 @@
               </div>
               <% if devise_mapping.rememberable? -%>
                 <div class="checkbox">
-                  <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+                    <%= f.check_box :remember_me %> <%= f.label :remember_me %>
                 </div>
               <% end -%>
-              <%= f.submit 'Sign in to my account', :class => 'button' %>
+    <%= f.submit 'Sign in to my account', :class => 'button' %>
             <% end %>
           </div>
         </div>						
