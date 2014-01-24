@@ -50,7 +50,8 @@ user = User.find_or_create_by_email email: ENV['ADMIN_EMAIL'].dup,
   password_confirmation: ENV['ADMIN_PASSWORD'].dup, 
   first_name: ENV['ADMIN_FIRST_NAME'].dup, 
   last_name: ENV['ADMIN_LAST_NAME'].dup,
-  is_admin: true
+  is_admin: true,
+  terms_of_service: 1
 puts "admin: #{user.email}"
 
 if Rails.env.development? == true
@@ -59,8 +60,8 @@ if Rails.env.development? == true
     password: ENV['ADMIN_PASSWORD'].dup, 
     password_confirmation: ENV['ADMIN_PASSWORD'].dup, 
     first_name: 'Test', 
-    last_name: 'User'
+    last_name: 'User',
+    terms_of_service: 1
   puts "user: #{user.email}"  
-subscription = user.subscriptions.new(plan: Plan.first)
-subscription.save
+  user.subscriptions.new(plan: Plan.first)
 end
