@@ -2,7 +2,7 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
 puts 'PLANS'
-Plan.find_or_create_by(name 'Basic') do |p|
+Plan.find_or_create_by(name: 'Basic') do |p|
   p.price = 0
   p.features = <<-eos
 *5* team members
@@ -17,7 +17,7 @@ eos
   puts "plan: #{p.name}"
 end
 
-Plan.find_or_create_by(name 'Advanced') do |p|
+Plan.find_or_create_by(name: 'Advanced') do |p|
   p.price = 5
   p.features = <<-eos
 *10* team members
@@ -32,7 +32,7 @@ eos
   puts "plan: #{p.name}"
 end
 
-Plan.find_or_create_by(name 'Deluxe') do |p|
+Plan.find_or_create_by(name: 'Deluxe') do |p|
   p.price = 10
   p.features = <<-eos
 *15* team members
@@ -67,9 +67,9 @@ if Rails.env.development? == true
     u.first_name = 'Test'
     u.last_name = 'User'
     u.terms_of_service = 1
-    
-    u.subscriptions.new(plan: Plan.first)
-    
+        
     puts "user: #{u.email}"  
   end
+  
+  user.subscriptions.create(plan: Plan.first)
 end
