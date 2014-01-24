@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140123040117) do
+ActiveRecord::Schema.define(version: 20140124041505) do
 
   create_table "plans", force: true do |t|
     t.string   "name"
@@ -30,10 +30,15 @@ ActiveRecord::Schema.define(version: 20140123040117) do
     t.integer  "plan_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date     "start_date", default: '2014-01-23'
-    t.date     "end_date",   default: '2014-02-23'
+    t.date     "start_date", default: '2014-01-24'
+    t.date     "end_date",   default: '2014-02-24'
+    t.string   "last_4"
+    t.string   "card_type"
+    t.integer  "amount"
+    t.integer  "coupon_id"
   end
 
+  add_index "subscriptions", ["coupon_id"], name: "index_subscriptions_on_coupon_id"
   add_index "subscriptions", ["end_date"], name: "index_subscriptions_on_end_date"
   add_index "subscriptions", ["plan_id"], name: "index_subscriptions_on_plan_id"
   add_index "subscriptions", ["start_date"], name: "index_subscriptions_on_start_date"
@@ -55,6 +60,7 @@ ActiveRecord::Schema.define(version: 20140123040117) do
     t.string   "first_name"
     t.string   "last_name"
     t.boolean  "is_admin",               default: false
+    t.integer  "stripe_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

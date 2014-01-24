@@ -15,11 +15,7 @@ SaasStarter::Application.routes.draw do
     get 'sign_up/*plan_id' => 'custom/registrations#new'
   end
   
-  resources :users do
-    resources :subscriptions, except: [:edit, :show]
-  end
-  
-  
+  resources :subscriptions, except: [:edit, :show]
   
   match '/dashboard', to: 'dashboards#index', via: 'get', as: 'dashboards'
     

@@ -1,15 +1,10 @@
 class SubscriptionsController < ApplicationController
-  before_action :set_subscription, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :set_subscription, only: [:destroy]
 
   # GET /subscriptions
-  # GET /subscriptions.json
   def index
-    @subscriptions = Subscription.all
-  end
-
-  # GET /subscriptions/1
-  # GET /subscriptions/1.json
-  def show
+    @subscriptions = Subscription.where('user_id = ?', current_user)
   end
 
   # GET /subscriptions/new
@@ -17,12 +12,7 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.new
   end
 
-  # GET /subscriptions/1/edit
-  def edit
-  end
-
   # POST /subscriptions
-  # POST /subscriptions.json
   def create
     @subscription = Subscription.new(subscription_params)
     
@@ -46,28 +36,12 @@ class SubscriptionsController < ApplicationController
       redirect_to charges_path
   end
 
-  # PATCH/PUT /subscriptions/1
-  # PATCH/PUT /subscriptions/1.json
-  def update
-    respond_to do |format|
-      if @subscription.update(subscription_params)
-        format.html { redirect_to @subscription, notice: 'Subscription was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @subscription.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /subscriptions/1
-  # DELETE /subscriptions/1.json
   def destroy
-    @subscription.destroy
-    respond_to do |format|
-      format.html { redirect_to subscriptions_url }
-      format.json { head :no_content }
-    end
+    flash[:notice] = "You've successfully cancelled your subscription."
+    @subscription.end_date = Date.yesterday
+    @subscription.save
+    redirect_to new_user_subscription current_user
   end
 
   private
@@ -78,6 +52,6 @@ class SubscriptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subscription_params
-      params.require(:subscription).permit(:index, :new, :create, :update, :destroy)
+      params.require(:subscription).permit(:user_id, :plan_id, :start_date, :end_date)
     end
 end

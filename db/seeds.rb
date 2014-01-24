@@ -61,5 +61,6 @@ if Rails.env.development? == true
     first_name: 'Test', 
     last_name: 'User'
   puts "user: #{user.email}"  
-user.subscriptions.create(plan: Plan.first)
+subscription = user.subscriptions.new(plan: Plan.first)
+subscription.save
 end
