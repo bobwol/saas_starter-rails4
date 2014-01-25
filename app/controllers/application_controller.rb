@@ -8,7 +8,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   layout :layout_by_resource
-
+  
+  def load_plans
+    @plans = Plan.order(:price)
+  end
+  
 private
   def layout_by_resource
     if controller_name == 'pages' && params[:id] == 'home'
@@ -25,6 +29,7 @@ private
 protected
   # Add custom strong params for User Sign Up
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :terms_of_service
+    devise_parameter_sanitizer.for(:sign_up) << :terms_of_service << :first_name << :last_name
+    devise_parameter_sanitizer.for(:account_update) << :first_name << :last_name
   end
 end

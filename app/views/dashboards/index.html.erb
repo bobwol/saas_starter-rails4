@@ -2,5 +2,5 @@
 <p>Welcome, <%= "#{current_user.full_name}!" %></p>
 <p>
   <strong>Current subscription:</strong>
-  <%= "#{current_user.subscription.plan.name} (#{link_to 'Change', new_subscription_path})".html_safe %>
+  <%= "#{current_user.subscription.plan.name} (#{link_to 'Manage', subscriptions_path})".html_safe %>
 </p>

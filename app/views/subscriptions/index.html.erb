@@ -1,25 +1,27 @@
-<h1>Your payments</h1>
+<h1><%= current_user.subscription.blank? ? "New" : "Change" %> subscription</h1>
+
+<%= render 'subscriptions/stripe_form' %>
+
+<h1>Payment History</h1>
 
 <table>
   <thead>
     <tr>
-      <th>plan_id</th>
       <th>start_date</th>
       <th>end_date</th>
+      <th>plan</th>
+      <th>amount</th>
     </tr>
   </thead>
 
   <tbody>
     <% @subscriptions.each do |subscription| %>
       <tr>
-        <td><%= subscription.plan_id %></td>
         <td><%= subscription.start_date %></td>
         <td><%= subscription.end_date %></td>
+        <td><%= subscription.plan.name %></td>
+        <td><%= subscription.amount %></td>
      </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Subscription', new_subscription_path %>

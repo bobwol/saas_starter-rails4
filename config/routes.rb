@@ -8,14 +8,9 @@ SaasStarter::Application.routes.draw do
   
   # To alter path for certain Devise user actions, add:
   # path_names: {sign_in: 'login', sign_out: 'logout'}
-  devise_for :users, path: '', controllers: { 
-    registrations: 'custom/registrations'
-  }
-  as :user do
-    get 'sign_up/*plan_id' => 'custom/registrations#new'
-  end
+  devise_for :users, path: ''
   
-  resources :subscriptions, except: [:edit, :show]
+  resources :subscriptions, except: [:new, :edit, :show]
   
   match '/dashboard', to: 'dashboards#index', via: 'get', as: 'dashboards'
     

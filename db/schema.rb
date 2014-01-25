@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20140124041505) do
     t.integer  "plan_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date     "start_date", default: '2014-01-24'
-    t.date     "end_date",   default: '2014-02-24'
+    t.date     "start_date", default: '2014-01-25'
+    t.date     "end_date",   default: '2014-02-25'
     t.string   "last_4"
     t.string   "card_type"
     t.integer  "amount"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20140124041505) do
     t.string   "first_name"
     t.string   "last_name"
     t.boolean  "is_admin",               default: false
-    t.integer  "stripe_id"
+    t.string   "stripe_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

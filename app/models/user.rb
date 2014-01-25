@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   has_many :subscriptions, dependent: :destroy
-  has_one :subscription, -> { where 'end_date >= ?', Date.today }, class_name: 'Subscription'
+  has_one :subscription, -> { where('end_date >= ?', Date.today).order("id DESC") }
   
-  validates :terms_of_service, acceptance: { allow_nil: false, accept: 1 }
+  validates :terms_of_service, acceptance: { allow_nil: false, accept: '1' }, on: :create
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

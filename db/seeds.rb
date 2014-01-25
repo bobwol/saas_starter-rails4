@@ -54,7 +54,7 @@ User.find_or_create_by(email: ENV['ADMIN_EMAIL'].dup) do |u|
   u.first_name = ENV['ADMIN_FIRST_NAME'].dup
   u.last_name = ENV['ADMIN_LAST_NAME'].dup
   u.is_admin = true
-  u.terms_of_service = 1
+  u.terms_of_service = '1'
   
   puts "admin: #{u.email}"
 end
@@ -66,7 +66,7 @@ if Rails.env.development? == true
     u.password_confirmation = ENV['ADMIN_PASSWORD'].dup
     u.first_name = 'Test'
     u.last_name = 'User'
-    u.terms_of_service = 1
+    u.terms_of_service = '1'
         
     puts "user: #{u.email}"  
   end

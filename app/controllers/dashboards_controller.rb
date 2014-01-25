@@ -10,8 +10,8 @@ class DashboardsController < ApplicationController
   private
   def require_subscription
     unless current_user.subscription
-      flash[:error] = 'You do not have a current subscription, please choose a plan.'
-      redirect_to new_subscription_path
+      flash[:error] = 'You do not have a current subscription, please add a plan.'
+      redirect_to subscriptions_path
     end
   end
 end

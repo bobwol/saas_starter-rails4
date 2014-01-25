@@ -1,14 +1,31 @@
-<%= form_tag subscriptions_path do %>
-<article>
-  <label class="amount">
-    <span>Amount: $5.00</span>
-  </label>
-</article>
 
-<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="<%=  ENV['STRIPE_PUBLIC_KEY'] %>"
-        data-amount="2000"
-        data-name="<%= ENV["SITE_NAME"] %>"
-        data-description="1 month subscription ($20.00)"
-        data-image="/128x128.png"></script>
+<%= form_for @subscription do |f| %>
+
+  <% if @subscription.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+
+      <ul>
+      <% @subscription.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :plan, "Choose a plan" %><br>
+    <% @plans.each do |plan| %>
+    <% is_checked = true if plan.id == @selected || (@selected == 0 && plan == @plans.first) %>
+    <%= radio_button :subscription, "plan_id", plan.id, {checked: is_checked} %>
+    <%= f.label "plan_id_#{plan.id}", "#{plan.name} #{price_cta plan}".html_safe, class: 'label-checkbox' %>
+    <br>
+    <% end %>
+  </div>
+
+<script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_SP2rCJRQTNZ7mhtRFVnWWnLN"
+    data-name="<%= ENV['SITE_NAME'] %>">
+  </script>
 <% end %>

@@ -15,7 +15,7 @@ module PlansHelper
   
   def price_cta plan
     price = "(#{number_to_currency plan.price}/#{plan.interval})"
-    price = "<del>#{price}</del> <span class=\"trial\">Free trial - limited time only!</span>" if plan.has_trial?
+    price = "<del>#{price}</del> <span class=\"trial\">Free trial - limited time only!</span>" if plan.has_trial? && !current_user
     price = "(FREE!)" if plan.price == 0
     price
   end
