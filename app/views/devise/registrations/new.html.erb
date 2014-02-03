@@ -1,5 +1,4 @@
 <%= content_for :title, 'Sign Up' %>
-<%= content_for :body_id, 'signup' %>
 
     <h4>Set up your new account today.</h4>
     <p>
@@ -45,7 +44,5 @@
         </div>						
       </div>
     </div>
-    <div class="already-account">
-      Already have an account?
-      <%= link_to 'Sign in here', new_user_session_path %>
-    </div>
+    
+    <%= render "devise/shared/links" %>

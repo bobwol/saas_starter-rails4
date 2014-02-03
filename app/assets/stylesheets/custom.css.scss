@@ -43,3 +43,13 @@ input.form-control[type="text"]::-moz-placeholder, input.form-control[type="emai
 label.label-checkbox {
   font-weight: normal;
 }
+
+li.hidden-xs {
+    display: inline-block !important;
+}
+
+@media (max-width: 767px) {
+li.hidden-xs {
+  display: none!important;
+ }
+}

@@ -17,8 +17,8 @@ private
   def layout_by_resource
     if controller_name == 'pages' && params[:id] == 'home'
       "home"                         # Homepage
-    elsif (controller_name == 'registrations' || controller_name == 'sessions') && (action_name == 'new' || action_name == 'create')
-      "sign_up"                      # Sign up & sign in
+    elsif devise_controller? && !(controller_name == 'registrations' && action_name == 'edit')
+      "sign_up"                      # Sign up, sign in, & forgot password
     elsif controller_name == 'pages' 
       "pages"                        # Static pages
     else

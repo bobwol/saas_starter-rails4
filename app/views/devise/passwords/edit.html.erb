@@ -1,16 +1,33 @@
-<h2>Change your password</h2>
+<%= content_for :title, 'Change your password' %>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+    <h4>Change your password</h4>
+  </div>
+</header>
+<div class="row">
+  <div class="col-md-12">
+    <div class="wrapper clearfix">
+      <div class="formy">
+        <div class="row">
+          <div class="col-md-12">
+           <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+              <%= devise_error_messages! %> 
+              <%= f.hidden_field :reset_password_token %>
+              
+              <div class="form-group">
+                <%= f.label :password %>
+                <%= f.password_field :password, class: 'form-control' %>
+              </div>
 
-  <div><%= f.label :password, "New password" %><br />
-  <%= f.password_field :password, :autofocus => true %></div>
-
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Change my password" %></div>
-<% end %>
+              <div class="form-group">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, class: 'form-control' %>
+              </div>
+            
+              <%= f.submit 'Change my password', class: 'button' %>
+            <% end %>
+          </div>
+        </div>						
+      </div>
+    </div>
 
 <%= render "devise/shared/links" %>

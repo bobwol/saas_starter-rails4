@@ -13,7 +13,7 @@
     <%= csrf_meta_tags %>
   </head>
   
-  <body<%= " id=\"#{yield(:body_id)}\"".html_safe if yield(:body_id) %>>
+  <body id="pages">
     <header class="navbar navbar-inverse normal" role="banner">
       <%= render 'layouts/pages/navigation' %>
     </header>
