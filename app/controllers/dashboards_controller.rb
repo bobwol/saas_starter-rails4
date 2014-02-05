@@ -3,7 +3,7 @@ class DashboardsController < ApplicationController
   before_action :require_subscription
   
   def index
-    #@projects = Project.all
+    @projects = Project.all
     @user = current_user
   end
   

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140124041505) do
+ActiveRecord::Schema.define(version: 20140203212609) do
 
   create_table "plans", force: true do |t|
     t.string   "name"
@@ -25,13 +25,22 @@ ActiveRecord::Schema.define(version: 20140124041505) do
     t.datetime "updated_at"
   end
 
+  create_table "projects", force: true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id"
+
   create_table "subscriptions", force: true do |t|
     t.integer  "user_id"
     t.integer  "plan_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date     "start_date", default: '2014-01-25'
-    t.date     "end_date",   default: '2014-02-25'
+    t.date     "start_date", default: '2014-02-03'
+    t.date     "end_date",   default: '2014-03-03'
     t.string   "last_4"
     t.string   "card_type"
     t.integer  "amount"

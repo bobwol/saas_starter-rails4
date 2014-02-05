@@ -71,5 +71,5 @@ if Rails.env.development? == true
     puts "user: #{u.email}"  
   end
   
-  user.subscriptions.create(plan: Plan.first)
+user.projects.create(name: 'Hello, World!')
 end

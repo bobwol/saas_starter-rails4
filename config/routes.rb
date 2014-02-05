@@ -1,6 +1,8 @@
 # The priority is based upon order of creation: first created -> highest priority.
 # See how all your routes lay out with "rake routes".
 SaasStarter::Application.routes.draw do
+  resources :projects
+
   namespace :admin do
     match '', to: 'dashboard#index', via: 'get', as: '/'
     resources :plans

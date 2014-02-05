@@ -8,7 +8,17 @@
         <strong>Current subscription:</strong>
         <%= "#{current_user.subscription.plan.name} (#{link_to 'Manage', subscriptions_path})".html_safe %>
       </p>
-      
+      <p>
+        <% if policy(@projects).create? %>
+          <%= link_to "Create project", new_project_path %>
+        <% end %>
+        
+        <% policy_scope(@projects).each do |project| %>
+        <li>
+          <h2><%= project.name %></h2>
+        </li>
+        <% end %>
+      </p>
     </div>
   </div>
 </div>
