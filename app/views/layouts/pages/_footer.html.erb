@@ -1,21 +1,31 @@
     <footer id="footer">
       <div class="container">
         <div class="row">
-          <div class="col-sm-4 copyright">
-            &copy; <%= link_to ENV["SITE_NAME"], root_path %>. All rights reserved.
-          </div>
-          <div class="col-sm-5 menu">
+          <div class="col-sm-8 menu">
             <ul>
               <li><%= link_to 'Features', page_path('features') %></li>
               <li><%= link_to 'Pricing', page_path('pricing') %></li>
               <li><%= link_to 'About', page_path('about') %></li>
-              <li><%= link_to 'Contact', page_path('contact') %></li>        
+              <li><%= link_to 'Contact', page_path('contact') %></li>
+              
+              <% if user_signed_in? %>
+              <li class="visible-xs"><%= link_to 'Dashboard', dashboards_path %></li>
+              <% else %>
+              <li><%= link_to 'Sign in', new_user_session_path %></li>
+              <li><%= link_to 'Sign up', new_user_registration_path %></li>
+              <% end %>
+              
             </ul>
           </div>
-          <div class="col-sm-3 social">
+          <div class="col-sm-4 social">
             <%= link_to (image_tag 'social/social-tw.png', alt: 'Twitter'), ENV["TWITTER_URL"] %>
             <%= link_to (image_tag 'social/social-fb.png', alt: 'Facebook'), ENV["FACEBOOK_URL"] %>
             <%= link_to (image_tag 'social/social-gp.png', alt: 'Google Plus'), ENV["GPLUS_URL"] %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 copyright">
+            &copy; <%= link_to ENV["SITE_NAME"], root_path %>. All rights reserved.
           </div>
         </div>
       </div>

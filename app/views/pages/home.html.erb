@@ -1,5 +1,3 @@
-<%= content_for :body_id, 'home' %>
-
 <div id="hero">
   <div class="container">
     <h1 class="hero-text animated fadeInDown">
@@ -10,7 +8,7 @@
     </p>
     <div class="cta animated fadeInDown">
       <%= link_to 'Take a tour', page_path('features'), class: 'button-outline' %>
-      <%= link_to 'Sign up free', new_user_registration_path, class: 'button' %>
+      <%= link_to 'Sign up', new_user_registration_path, class: 'button' %>
     </div>
     <div class="browsers">
       <%= image_tag 'ss.png', class: 'img-responsive', alt: 'screenshot' %>
@@ -63,112 +61,33 @@
       </div>
     </div>
     <div class="row charts">
+      <% @plans.each do |plan| %>
       <div class="col-md-4">
-        <div class="chart first">
-          <div class="quantity">
-            <span class="dollar">$</span>
-            <span class="price">0</span>
-            <span class="period">/month</span>
-          </div>
-          <div class="plan-name">Basic</div>
-          <div class="specs">
-            <div class="spec">
-              <span class="variable">1</span>
-              team member
-            </div>
-            <div class="spec">
-              <span class="variable">Digital</span>
-              recurring billing
-            </div>
-            <div class="spec">
-              <span class="variable">Virtual</span>
-              online terminal
-            </div>
-            <div class="spec">
-              <span class="variable">10</span>
-              total products
-            </div>
-            <div class="spec">
-              <span class="variable">1.0%</span>
-              Transaction fee
-            </div>
-          </div>
-          <a class="btn-signup button-clear" href="signup.html">
-            <span>Sign up</span>
-          </a>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="chart featured">
+        <div class="chart <%= pricing_table_class plan, @plans %>">
+          <% if plan.is_featured? %>
           <div class="popular">Most popular</div>
+          <% end %>
           <div class="quantity">
             <span class="dollar">$</span>
-            <span class="price">5</span>
-            <span class="period">/month</span>
+            <span class="price"><%= plan.price %></span>
+            <span class="period">/<%= plan.interval %></span>
           </div>
-          <div class="plan-name">Advanced</div>
+          <div class="plan-name"><%= plan.name %></div>
           <div class="specs">
             <div class="spec">
-              <span class="variable">5</span>
-              team members
-            </div>
-            <div class="spec">
-              <span class="variable">Digital</span>
-              recurring billing
-            </div>
-            <div class="spec">
-              <span class="variable">Virtual</span>
-              online terminal
-            </div>
-            <div class="spec">
-              <span class="variable">15</span>
-              total products
-            </div>
-            <div class="spec">
-              <span class="variable">0.5%</span>
-              Transaction fee
+              <%= markdown plan.features.to_s %>
             </div>
           </div>
-          <a class="btn-signup button-clear" href="signup.html">
-            <span>Start free trial</span>
-          </a>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="chart last">
-          <div class="quantity">
-            <span class="dollar">$</span>
-            <span class="price">10</span>
-            <span class="period">/month</span>
-          </div>
-          <div class="plan-name">Deluxe</div>
-          <div class="specs">
-            <div class="spec">
-              <span class="variable">Unlimited</span>
-              team members
-            </div>
-            <div class="spec">
-              <span class="variable">Digital</span>
-              recurring billing
-            </div>
-            <div class="spec">
-              <span class="variable">Virtual</span>
-              online terminal
-            </div>
-            <div class="spec">
-              <span class="variable">25</span>
-              total products
-            </div>
-            <div class="spec">
-              <span class="variable">No</span>
-              Transaction fee
-            </div>
-          </div>
-          <a class="btn-signup button-clear" href="signup.html">
+          <a class="btn-signup button-clear" href="<%= new_user_registration_path %>">
+            <% unless plan.has_trial? %>
             <span>Sign up</span>
+            <% else %>
+            <span>Start free trial</span>
+            <% end %>
           </a>
         </div>
       </div>
+      <% end %>
     </div>
   </div>
 </div>

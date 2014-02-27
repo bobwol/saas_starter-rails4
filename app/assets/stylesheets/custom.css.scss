@@ -5,6 +5,15 @@
 #error_explanation h2 {
   font-size: 16px;
 }
+#home #pricing p {
+  line-height: 2.3em;
+}
+#home #pricing em {
+  color: #1FBEE7;
+  font-weight: 400;
+  font-style: normal;
+}
+
 #home #cta .form-wrapper,
 #cta .form-wrapper {
   background: none repeat scroll 0 0 #EDF4F7;
@@ -23,4 +32,24 @@ input.form-control[type="text"]::-moz-placeholder, input.form-control[type="emai
 #footer .copyright a:hover {
   color: #FFFFFF;
   text-decoration: none;
+}
+
+.trial {
+  background-color: #FF0000;
+  color: #FFFFFF;
+  font-weight: normal;
+  padding: 0 5px;
+}
+label.label-checkbox {
+  font-weight: normal;
+}
+
+li.hidden-xs {
+    display: inline-block !important;
+}
+
+@media (max-width: 767px) {
+li.hidden-xs {
+  display: none!important;
+ }
 }

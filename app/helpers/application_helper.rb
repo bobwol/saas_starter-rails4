@@ -8,4 +8,17 @@ module ApplicationHelper
       "#{page_title} | #{base_title}"
     end
   end
+  
+  def markdown(text)
+    # Initializes an HTML renderer
+    render_options = [hard_wrap: true]
+    renderer ||= Redcarpet::Render::HTML.new(*render_options)
+    
+    # Initializes a Markdown parser
+    extensions = [space_after_headers: true]
+    parser ||= Redcarpet::Markdown.new(renderer, *extensions)
+    
+    # Renders the Markdown
+    parser.render(text).html_safe
+  end  
 end
