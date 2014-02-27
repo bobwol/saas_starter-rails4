@@ -1,0 +1,29 @@
+<%= content_for :title, 'Forgot your password?' %>
+
+    <h4>Forgot your password?</h4>
+    <p>
+      We'll send password reset instructions.
+    </p>
+  </div>
+</header>
+<div class="row">
+  <div class="col-md-12">
+    <div class="wrapper clearfix">
+      <div class="formy">
+        <div class="row">
+          <div class="col-md-12">
+            <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :role => 'form'}) do |f| %>
+              <%= devise_error_messages! %> 
+              <div class="form-group">
+                <%= f.label :email %>
+                <%= f.email_field :email, class: 'form-control', autofocus: true %>
+              </div>
+              <%= f.submit 'Reset password', class: 'button' %>
+            <% end %>
+          </div>
+        </div>						
+      </div>
+    </div>
+    
+    <%= render "devise/shared/links" %>
+    
